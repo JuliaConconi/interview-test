@@ -12,15 +12,14 @@ if(isset($_POST['email']) || isset ($_POST['password'])){
             $email = $mysqli->real_escape_string($_POS['email']);
             $senha = $mysqli->real_escape_string($_POST['senha']);
 
-            $sql_query = "SELECT  * FROM users WHERE email = '$email' AND password = '$senha' ";
-            $result = $mysqli->query($sql_code) or die("Failed in the execution the code SQL: " .$mysqli->error);
+            $sql_code = "SELECT  * FROM users WHERE email = '$email' AND 'password' = '$password' ";
+            $sql_code = $mysqli->query($sql_code) or die("Failed in the execution the code SQL: " .$mysqli->error);
 
             // Mudar para inglês
-            $quantidade = $result->num_rows;
+            $quantidade = $sql_code->num_rows;
 
             if($quantidade == 1){
-
-                $user = $result->fetch_assoc();
+                $user = $sql_query->fetch_assoc();
 
                 if(!isset($_SESSION)){
                     session_start();
@@ -29,7 +28,6 @@ if(isset($_POST['email']) || isset ($_POST['password'])){
                 $_SESSION['user'] = $user['id'];
                 $_SESSION['name'] = $user['name'];
 
-                header("Location: painel.php");
             }else{
                 echo("Falha ao logar! E-mail or password is wrong");
             }
