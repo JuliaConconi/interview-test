@@ -2,7 +2,7 @@
 
 $user = 'root';
 $password = '';
-$database = 'login';
+$database = 'interview';
 $host = 'localhost';
 
 $mysqli = new mysqli($host, $user, $password, $database);
