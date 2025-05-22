@@ -1,14 +1,12 @@
 <?php
 
-$host = 'localhost';
 $user = 'root';
-$db_password = '';
-$database = 'interview';
+$password = '';
+$database = 'login';
+$host = 'localhost';
 
-$connection = mysqli_connect($host, $user, $db_password, $database);
+$mysqli = new mysqli($host, $user, $password, $database);
 
-if (!$connection) {
-    die("Falha na conexão com o banco de dados: " . mysqli_connect_error());
+if ($mysqli->error){
+    die("Failed in connetcion: ". $mysqli->error);
 }
-
-?>
