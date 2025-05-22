@@ -13,10 +13,10 @@ if(isset($_POST['email']) || isset ($_POST['password'])){
             $senha = $mysqli->real_escape_string($_POST['senha']);
 
             $sql_code = "SELECT  * FROM users WHERE email = '$email' AND 'password' = '$password' ";
-            $sql_code = $mysqli->query($sql_code) or die("Failed in the execution the code SQL: " .$mysqli->error);
+            $sql_query = $mysqli->query($sql_query) or die("Failed in the execution the code SQL: " .$mysqli->error);
 
             // Mudar para inglês
-            $quantidade = $sql_code->num_rows;
+            $quantidade = $sql_query->num_rows;
 
             if($quantidade == 1){
                 $user = $sql_query->fetch_assoc();
